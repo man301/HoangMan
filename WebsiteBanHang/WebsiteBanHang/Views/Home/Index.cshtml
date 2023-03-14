@@ -1,4 +1,6 @@
-﻿@{ 
+﻿@model WebsiteBanHang.Models.HomeModel
+
+@{ 
     ViewBag.Title = "Home Page";
 }
 
@@ -10,25 +12,19 @@
 
                 <div class="row">
                     <aside class="col-lg col-md-3 flex-lg-grow-0">
-                        <h6>MY MARKETS</h6>
+                        <h6>Danh mục</h6>
                         <nav class="nav-home-aside">
                             <ul class="menu-category">
-                                <li><a href="#">@Html.ActionLink("Fashion and clothes", "Category", "Category")</a></li>
-                                <li><a href="#">@Html.ActionLink("Automobile and motors", "Category", "Category")</a></li>
-                                <li><a href="#">@Html.ActionLink("Gardening and agriculture", "Category", "Category")</a></li>
-                                <li><a href="#">@Html.ActionLink("Electronics and tech", "Category", "Category")</a></li>
-                                <li><a href="#">@Html.ActionLink("Packaginf and printing", "Category", "Category")</a></li>
-                                <li><a href="#">@Html.ActionLink("Home and kitchen", "Category", "Category")</a></li>
-                                <li><a href="#">@Html.ActionLink("Digital goods", "Category", "Category")</a></li>
-                                <li class="has-submenu">
-                                    <a href="#">More items</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">@Html.ActionLink("Submenu name", "Category", "Category")</a></li>
-                                        <li><a href="#">@Html.ActionLink("Great submenu", "Category", "Category")</a></li>
-                                        <li><a href="#">@Html.ActionLink("Another menu", "Category", "Category")</a></li>
-                                        <li><a href="#">@Html.ActionLink("Some others", "Category", "Category")</a></li>
-                                    </ul>
-                                </li>
+                                @foreach (var item in Model.ListCategory)
+                                {
+                                    <li>
+                                        
+                                        @Html.ActionLink(item.Name,"ProductCategory","Category",new { @Id = item.Id },null)
+                                    </li>
+                                }
+
+
+                                    
                             </ul>
                         </nav>
                     </aside> <!-- col.// -->
@@ -66,31 +62,18 @@
                     </div> <!-- col.// -->
                     <div class="col-md d-none d-lg-block flex-grow-1">
                         <aside class="special-home-right">
-                            <h6 class="bg-blue text-center text-white mb-0 p-2">Popular category</h6>
-
-                            <div class="card-banner border-bottom">
-                                <div class="py-3" style="width:80%">
-                                    <h6 class="card-title">Men clothing</h6>
-                                    <a href="#" class="btn btn-secondary btn-sm">Source now  </a>
+                            <h6 class="bg-blue text-center text-white mb-0 p-2">Danh mục phổ biến</h6>
+                            @foreach (var item in Model.ListCategory.Where(n=>n.ShowOnHomePage == true).Take(3))
+                            {
+                                <div class="card-banner border-bottom">
+                                    <div class="py-3" style="width:80%">
+                                        <h6 class="card-title">@item.Name </h6>
+                                        <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
+                                    </div>
+                                    <img src="~/Content/images/items/1.jpg" height="80" class="img-bg">
                                 </div>
-                                <img src="~/Content/images/items/1.jpg" height="80" class="img-bg">
-                            </div>
+                            }
 
-                            <div class="card-banner border-bottom">
-                                <div class="py-3" style="width:80%">
-                                    <h6 class="card-title">Winter clothing </h6>
-                                    <a href="#" class="btn btn-secondary btn-sm">Source now  </a>
-                                </div>
-                                <img src="~/Content/images/items/2.jpg" height="80" class="img-bg">
-                            </div>
-
-                            <div class="card-banner border-bottom">
-                                <div class="py-3" style="width:80%">
-                                    <h6 class="card-title">Home inventory</h6>
-                                    <a href="#" class="btn btn-secondary btn-sm">Source now </a>
-                                </div>
-                                <img src="~/Content/images/items/6.jpg" height="80" class="img-bg">
-                            </div>
 
                         </aside>
                     </div> <!-- col.// -->
@@ -106,7 +89,7 @@
         <div class="card card-deal">
             <div class="col-heading content-body">
                 <header class="section-heading">
-                    <h3 class="section-title">Deals and offers</h3>
+                    <h3 class="section-title">Giảm giá sốc</h3>
                     <p>Hygiene equipments</p>
                 </header><!-- sect-heading -->
                 <div class="timer">
@@ -117,61 +100,24 @@
                 </div>
             </div> <!-- col.// -->
             <div class="row no-gutters items-wrap">
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/3.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">@Html.ActionLink("Summer clothes","Detail","Product")</a>
-                            <span class="badge badge-danger"> -20% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/4.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">@Html.ActionLink("Some category", "Detail", "Product")</a>
-                            <span class="badge badge-danger"> -5% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/5.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">@Html.ActionLink("Another category", "Detail", "Product")</a>
-                            <span class="badge badge-danger"> -20% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/6.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title">@Html.ActionLink("Home apparel", "Detail", "Product")</a>
-                            <span class="badge badge-danger"> -15% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
-                <div class="col-md col-6">
-                    <figure class="card-product-grid card-sm">
-                        <a href="#" class="img-wrap">
-                            <img src="~/Content/images/items/7.jpg">
-                        </a>
-                        <div class="text-wrap p-3">
-                            <a href="#" class="title text-truncate">@Html.ActionLink("Smart watches", "Detail", "Product")</a>
-                            <span class="badge badge-danger"> -10% </span>
-                        </div>
-                    </figure>
-                </div> <!-- col.// -->
+                @foreach (var item in Model.ListProduct.Where(n=>n.TypeId == 1).Take(5))
+                {
+                    <div class="col-md col-6">
+                        <figure class="card-product-grid card-sm">
+                            <a href="@Url.Action("Detail","Product", new {Id = item.Id })" class="img-wrap">
+                                <img src="~/Content/images/items/@item.Avatar">
+                            </a>
+                            <div class="text-wrap p-3">
+                                @*<a href="#" class="title">@item.Name</a>*@
+
+                                @Html.ActionLink(item.Name, "Detail", "Product", new { Id = item.Id },null) 
+
+                                <span class="badge badge-danger"> -20% </span>
+                            </div>
+                        </figure>
+                    </div> <!-- col.// -->
+                }
+
             </div>
         </div>
 
@@ -180,7 +126,7 @@
     <!-- =============== SECTION 1 =============== -->
     <section class="padding-bottom">
         <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Apparel</h4>
+            <h4 class="title-section text-uppercase">APPLE</h4>
         </header>
 
         <div class="card card-home-category">
@@ -197,79 +143,19 @@
                 </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Well made women clothes with trending collection", "Detail", "Product")  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/1.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Great clothes with trending collection", "Detail", "Product")  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/2.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Beijing, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Demo clothes with sample collection", "Detail", "Product")  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/3.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tokyo, Japan</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Home and kitchen electronic  stuff collection", "Detail", "Product")  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/4.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tashkent, Uzb</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Home and kitchen electronic  stuff collection", "Detail", "Product")  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/5.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> London, Britain</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Home and kitchen electronic  stuff collection", "Detail", "Product")  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/6.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Well made clothes with trending collection", "Detail", "Product") </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/7.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Hong Kong, China</p>
+                        @foreach (var item in Model.ListProduct.Where(n=>n.BrandId == 1))
+                        {
+                            <li class="col-6 col-lg-3 col-md-4">
+                                <a href="#" class="item">
+                                    <div class="card-body">
+                                        <h6 class="title">Well made women clothes with trending collection  </h6>
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
+                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> @item.Name</p>
+                                    </div>
+                                </a>
+                            </li>
+                        }
 
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">@Html.ActionLink("Home and kitchen interior  stuff collection", "Detail", "Product")   </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/6.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
                     </ul>
                 </div> <!-- col.// -->
             </div> <!-- row.// -->
@@ -279,7 +165,7 @@
     <!-- =============== SECTION 2 =============== -->
     <section class="padding-bottom">
         <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Electronics</h4>
+            <h4 class="title-section text-uppercase">Samsung</h4>
         </header>
 
         <div class="card card-home-category">
@@ -296,79 +182,18 @@
                 </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Well made electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/7.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tokyo, Japan</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Another demo text for item stuff goes here  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/8.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Hong Kong, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/9.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tashkent, Uzb</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Group of electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/10.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/11.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/12.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/1.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-
-                                </div>
-                            </a>
-                        </li>
-                        <li class="col-6 col-lg-3 col-md-4">
-                            <a href="#" class="item">
-                                <div class="card-body">
-                                    <h6 class="title">Home and kitchen electronic  stuff collection  </h6>
-                                    <img class="img-sm float-right" src="~/Content/images/items/2.jpg">
-                                    <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
-                                </div>
-                            </a>
-                        </li>
+                        @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 2))
+                        {
+                            <li class="col-6 col-lg-3 col-md-4">
+                                <a href="#" class="item">
+                                    <div class="card-body">
+                                        <h6 class="title">Well made women clothes with trending collection  </h6>
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
+                                        <p class="text-muted"><i class="fa fa-map-marker-alt"></i> @item.Name</p>
+                                    </div>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div> <!-- col.// -->
             </div> <!-- row.// -->
@@ -407,7 +232,6 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <input class="form-control" placeholder="Quantity" name="" type="text">
-
                                 <select class="custom-select form-control">
                                     <option>Pieces</option>
                                     <option>Litres</option>
@@ -442,118 +266,22 @@
     <section class="padding-bottom-sm">
 
         <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Recommended items</h4>
+            <h4 class="title-section text-uppercase">Sản phẩm đề xuất</h4>
         </header>
 
         <div class="row row-sm">
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/1.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Just another product name", "Detail", "Product")</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/2.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Some item name here", "Detail", "Product")</a>
-                        <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/3.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Great product name here", "Detail", "Product")</a>
-                        <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/4.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Just another product name", "Detail", "Product")</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/5.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Just another product name", "Detail", "Product")</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/6.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Some item name here", "Detail", "Product")</a>
-                        <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/7.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Great product name here", "Detail", "Product")</a>
-                        <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/9.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Just another product name", "Detail", "Product")</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/4.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Just another product name", "Detail", "Product")</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/5.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Just another product name", "Detail", "Product")</a>
-                        <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/6.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Some item name here", "Detail", "Product")</a>
-                        <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/7.jpg"> </a>
-                    <figcaption class="info-wrap">
-                        <a href="#" class="title">@Html.ActionLink("Great product name here", "Detail", "Product")</a>
-                        <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
-                    </figcaption>
-                </div>
-            </div> <!-- col.// -->
+            @foreach (var item in Model.ListProduct.Where(n=>n.TypeId == 2).Take(6))
+            {
+                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                    <div href="#" class="card card-sm card-product-grid">
+                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/@item.Avatar"> </a>
+                        <figcaption class="info-wrap">
+                            <a href="#" class="title">@item.Name</a>
+                            <div class="price mt-1">@item.Price</div> <!-- price-wrap.// -->
+                        </figcaption>
+                    </div>
+                </div> <!-- col.// -->
+            }
         </div> <!-- row.// -->
     </section>
     <!-- =============== SECTION ITEMS .//END =============== -->

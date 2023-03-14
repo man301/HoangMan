@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebsiteBanHang.Context;
 
 namespace WebsiteBanHang.Controllers
 {
     public class ProductController : Controller
     {
+        WebBanHangEntities objWebBanHangEntities = new WebBanHangEntities();
+
         // GET: Product
-        public ActionResult Detail()
+        public ActionResult Detail(int Id)
         {
-            return View();
+            var objProduct = objWebBanHangEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
+            return View(objProduct);
         }
     }
 }
