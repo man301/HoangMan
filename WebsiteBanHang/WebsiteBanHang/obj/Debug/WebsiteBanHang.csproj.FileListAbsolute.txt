@@ -106,3 +106,8 @@ C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\System.Security.Permissions.xml
 C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\System.Security.Principal.Windows.xml
 C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\System.Threading.Channels.xml
 C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\System.Threading.Tasks.Extensions.xml
+C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\PagedList.dll
+C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\PagedList.Mvc.dll
+C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\PagedList.xml
+C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\bin\PagedList.Mvc.xml
+C:\ASP.NET\WebsiteBanHang\WebsiteBanHang\obj\Debug\WebsiteBanHang.csproj.AssemblyReference.cache

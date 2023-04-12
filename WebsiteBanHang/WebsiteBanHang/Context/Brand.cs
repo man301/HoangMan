@@ -21,7 +21,7 @@ namespace WebsiteBanHang.Context
         public Nullable<bool> ShowOnHomePage { get; set; }
         public Nullable<int> DisplayOrder { get; set; }
         public Nullable<System.DateTime> CreatedOnUtc { get; set; }
-        public Nullable<System.DateTime> UpdateOnUtc { get; set; }
+        public Nullable<System.DateTime> UpdatedOnUtc { get; set; }
         public Nullable<bool> Deleted { get; set; }
     }
 }

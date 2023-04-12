@@ -16,7 +16,7 @@ namespace WebsiteBanHang.Context
     public partial class WebBanHangEntities : DbContext
     {
         public WebBanHangEntities()
-            : base("name=WebBanHangEntities")
+            : base("name=WebBanHangEntities1")
         {
         }
     
@@ -30,6 +30,5 @@ namespace WebsiteBanHang.Context
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public object Brand { get; internal set; }
     }
 }

@@ -12,7 +12,7 @@
 
                 <div class="row">
                     <aside class="col-lg col-md-3 flex-lg-grow-0">
-                        <h6>Danh mục</h6>
+                        <h6>Category</h6>
                         <nav class="nav-home-aside">
                             <ul class="menu-category">
                                 @foreach (var item in Model.ListCategory)
@@ -62,7 +62,7 @@
                     </div> <!-- col.// -->
                     <div class="col-md d-none d-lg-block flex-grow-1">
                         <aside class="special-home-right">
-                            <h6 class="bg-blue text-center text-white mb-0 p-2">Danh mục phổ biến</h6>
+                            <h6 class="bg-blue text-center text-white mb-0 p-2">Popular Categories</h6>
                             @foreach (var item in Model.ListCategory.Where(n=>n.ShowOnHomePage == true).Take(3))
                             {
                                 <div class="card-banner border-bottom">
@@ -89,7 +89,7 @@
         <div class="card card-deal">
             <div class="col-heading content-body">
                 <header class="section-heading">
-                    <h3 class="section-title">Giảm giá sốc</h3>
+                    <h3 class="section-title">Shock discount</h3>
                     <p>Hygiene equipments</p>
                 </header><!-- sect-heading -->
                 <div class="timer">
@@ -146,7 +146,7 @@
                         @foreach (var item in Model.ListProduct.Where(n=>n.BrandId == 1))
                         {
                             <li class="col-6 col-lg-3 col-md-4">
-                                <a href="#" class="item">
+                                <a href="@Url.Action("Detail","Product", new {Id = item.Id })" class="item">
                                     <div class="card-body">
                                         <h6 class="title">Well made women clothes with trending collection  </h6>
                                         <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
@@ -170,22 +170,12 @@
 
         <div class="card card-home-category">
             <div class="row no-gutters">
-                <div class="col-md-3">
-
-                    <div class="home-category-banner bg-light-orange">
-                        <h5 class="title">Machinery items for manufacturers</h5>
-                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                        <a href="#" class="btn btn-outline-primary rounded-pill">Source now</a>
-                        <img src="~/Content/images/items/14.jpg" class="img-bg">
-                    </div>
-
-                </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
                         @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 2))
                         {
                             <li class="col-6 col-lg-3 col-md-4">
-                                <a href="#" class="item">
+                                <a href="@Url.Action("Detail","Product", new {Id = item.Id })" class="item">
                                     <div class="card-body">
                                         <h6 class="title">Well made women clothes with trending collection  </h6>
                                         <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
@@ -266,7 +256,7 @@
     <section class="padding-bottom-sm">
 
         <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Sản phẩm đề xuất</h4>
+            <h4 class="title-section text-uppercase">Recommended Product</h4>
         </header>
 
         <div class="row row-sm">
@@ -274,7 +264,7 @@
             {
                 <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                     <div href="#" class="card card-sm card-product-grid">
-                        <a href="#" class="img-wrap"> <img src="~/Content/images/items/@item.Avatar"> </a>
+                        <a href="@Url.Action("Detail","Product", new {Id = item.Id })" class="img-wrap"> <img src="~/Content/images/items/@item.Avatar"> </a>
                         <figcaption class="info-wrap">
                             <a href="#" class="title">@item.Name</a>
                             <div class="price mt-1">@item.Price</div> <!-- price-wrap.// -->

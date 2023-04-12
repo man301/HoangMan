@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using WebsiteBanHang.Context;
 using WebsiteBanHang.Models;
+using User = WebsiteBanHang.Context.User;
+
 
 namespace WebsiteBanHang.Controllers
 {
