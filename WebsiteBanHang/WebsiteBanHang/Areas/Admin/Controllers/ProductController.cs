@@ -116,6 +116,7 @@ namespace WebsiteBanHang.Areas.Admin.Controllers
             var objProduct = dbObj.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(int id,Product objProduct)
         {
@@ -131,10 +132,10 @@ namespace WebsiteBanHang.Areas.Admin.Controllers
                     //ten hinh.png
                     objProduct.Avatar = fileName;
                     //lưu file hình
-                    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items"), fileName));
+                    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/items/"), fileName));
                 }
                 objProduct.UpdatedOnUtc = DateTime.Now;
-                dbObj.Products.Add(objProduct);
+                dbObj.Entry(objProduct).State = System.Data.Entity.EntityState.Modified;
                 dbObj.SaveChanges();
                 return RedirectToAction("Index");
             }

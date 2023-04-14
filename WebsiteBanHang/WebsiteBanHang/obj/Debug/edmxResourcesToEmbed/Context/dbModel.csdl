@@ -34,10 +34,9 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ProductId" Type="Int32" />
-    <Property Name="Price" Type="Double" />
     <Property Name="Status" Type="Int32" />
     <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -77,5 +76,15 @@
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="OrderDetails" EntityType="WebBanHangModel.OrderDetail" />
   </EntityContainer>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>
