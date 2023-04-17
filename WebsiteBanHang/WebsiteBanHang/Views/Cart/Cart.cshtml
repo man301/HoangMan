@@ -65,7 +65,7 @@
                             </td>
                             <td>
                                 <div class="price-wrap">
-                                    <var class="price">@item.Product.Price</var>
+                                    <var class="price">@(String.Format("{0:N0}", ((@item.Product.Price * item.Quantity)))) </var>
                                 </div> <!-- price-wrap .// -->
                             </td>
                             <td class="text-right">
@@ -115,15 +115,15 @@
                     <div class="card-body">
                         <dl class="dlist-align">
                             <dt>Tổng giá:</dt>
-                            <dd class="text-right">USD 568</dd>
+                            <dd class="text-right">100000 VND</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Giảm giá:</dt>
-                            <dd class="text-right">USD 658</dd>
+                            <dd class="text-right">10000 VND</dd>
                         </dl>
                         <dl class="dlist-align">
                             <dt>Tổng cộng:</dt>
-                            <dd class="text-right  h5"><strong>$1,650</strong></dd>
+                            <dd class="text-right  h5"><strong>90000 VND</strong></dd>
                         </dl>
                         <hr>
                         <p class="text-center mb-3">

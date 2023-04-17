@@ -125,5 +125,10 @@ namespace WebsiteBanHang.Controllers
             }
             return byte2String;
         }
+        public ActionResult Search(String search,int Id=0)
+        {
+
+            return View();
+        }
     }
 }

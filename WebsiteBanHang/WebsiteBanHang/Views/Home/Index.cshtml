@@ -12,21 +12,7 @@
 
                 <div class="row">
                     <aside class="col-lg col-md-3 flex-lg-grow-0">
-                        <h6>Loại</h6>
-                        <nav class="nav-home-aside">
-                            <ul class="menu-category">
-                                @foreach (var item in Model.ListCategory)
-                                {
-                                    <li>
-                                        
-                                        @Html.ActionLink(item.Name,"ProductCategory","Category",new { @Id = item.Id },null)
-                                    </li>
-                                }
-
-
-                                    
-                            </ul>
-                        </nav>
+                        
                     </aside> <!-- col.// -->
                     <div class="col-md-9 col-xl-7 col-lg-7">
 
@@ -39,13 +25,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="~/Content/images/banners/slide1.jpg" alt="First slide">
+                                    <img src="~/Content/images/banners/banner1.jpg" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="~/Content/images/banners/slide2.jpg" alt="Second slide">
+                                    <img src="~/Content/images/banners/banner2.jpg" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="~/Content/images/banners/slide3.jpg" alt="Third slide">
+                                    <img src="~/Content/images/banners/banner3.jpg" alt="Third slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
@@ -65,14 +51,14 @@
                             <h6 class="bg-blue text-center text-white mb-0 p-2">
                                 Danh mục phổ biến
                             </h6>
-                            @foreach (var item in Model.ListCategory.Where(n=>n.ShowOnHomePage == true).Take(3))
+                            @foreach (var item in Model.ListCategory.Where(n => n.ShowOnHomePage == true).Take(3))
                             {
                                 <div class="card-banner border-bottom">
                                     <div class="py-3" style="width:80%">
-                                        <h6 class="card-title">@item.Name </h6>
-                                        <a href="#" class="btn btn-secondary btn-sm"> Nguồn bây giờ </a>
+                                        <h6 class="card-title">@item.Name</h6>
+                                        <a href="@Url.Action("ProductCategory","Category", new {Id = item.Id })" class="btn btn-secondary btn-sm"> Nguồn bây giờ </a>
                                     </div>
-                                    <img src="~/Content/images/items/1.jpg" height="80" class="img-bg">
+                                    <img src="~/Content/images/category/@item.Avatar" height="80" class="img-bg">
                                 </div>
                             }
 
@@ -92,7 +78,7 @@
             <div class="col-heading content-body">
                 <header class="section-heading">
                     <h3 class="section-title">Giảm giá sốc</h3>
-                    <p>thiết bị vệ sinh</p>
+                    <p>Khung thời gian</p>
                 </header><!-- sect-heading -->
                 <div class="timer">
                     <div> <span class="num">04</span> <small>Ngày</small></div>
@@ -102,7 +88,7 @@
                 </div>
             </div> <!-- col.// -->
             <div class="row no-gutters items-wrap">
-                @foreach (var item in Model.ListProduct.Where(n=>n.TypeId == 1).Take(5))
+                @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 1).Take(5))
                 {
                     <div class="col-md col-6">
                         <figure class="card-product-grid card-sm">
@@ -112,7 +98,7 @@
                             <div class="text-wrap p-3">
                                 @*<a href="#" class="title">@item.Name</a>*@
 
-                                @Html.ActionLink(item.Name, "Detail", "Product", new { Id = item.Id },null) 
+                                @Html.ActionLink(item.Name, "Detail", "Product", new { Id = item.Id }, null)
 
                                 <span class="badge badge-danger"> -20% </span>
                             </div>
@@ -136,20 +122,20 @@
                 <div class="col-md-3">
 
                     <div class="home-category-banner bg-light-orange">
-                        <h5 class="title">Xu hướng quần áo tốt nhất chỉ dành cho mùa hè</h5>
+                        <h5 class="title">Xu hướng điện thoại tốt</h5>
                         <a href="#" class="btn btn-outline-primary rounded-pill">Nguồn bây giờ</a>
-                        <img src="~/Content/images/items/2.jpg" class="img-bg">
+                        <img src="~/Content/images/items/Điện thoại iPhone 14 Plus 512GB.jpg" class="img-bg">
                     </div>
 
                 </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
-                        @foreach (var item in Model.ListProduct.Where(n=>n.BrandId == 1))
+                        @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 1))
                         {
                             <li class="col-6 col-lg-3 col-md-4">
                                 <a href="@Url.Action("Detail","Product", new {Id = item.Id })" class="item">
                                     <div class="card-body">
-                                        
+
                                         <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
                                         <h class="title"><i class="fa fa-map-marker-alt"></i> @item.Name</h>
                                     </div>
@@ -169,8 +155,19 @@
             <h4 class="title-section text-uppercase">Samsung</h4>
         </header>
 
+
+
         <div class="card card-home-category">
             <div class="row no-gutters">
+                <div class="col-md-3">
+
+                    <div class="home-category-banner bg-light-orange">
+                        <h5 class="title">Xu hướng điện thoại tốt</h5>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">Nguồn bây giờ</a>
+                        <img src="~/Content/images/items/Điện thoại Samsung Galaxy A14 4GB.jpg" class="img-bg">
+                    </div>
+
+                </div> <!-- col.// -->
                 <div class="col-md-9">
                     <ul class="row no-gutters bordered-cols">
                         @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 2))
@@ -178,7 +175,44 @@
                             <li class="col-6 col-lg-3 col-md-4">
                                 <a href="@Url.Action("Detail","Product", new {Id = item.Id })" class="item">
                                     <div class="card-body">
-                                        
+
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
+                                        <h class="title"><i class="fa fa-map-marker-alt"></i> @item.Name</h>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div> <!-- col.// -->
+            </div> <!-- row.// -->
+        </div> <!-- card.// -->
+    </section>
+    <section class="padding-bottom">
+        <header class="section-heading heading-line">
+            <h4 class="title-section text-uppercase">Laptop</h4>
+        </header>
+
+
+
+        <div class="card card-home-category">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+
+                    <div class="home-category-banner bg-light-orange">
+                        <h5 class="title">Xu hướng điện thoại tốt</h5>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">Nguồn bây giờ</a>
+                        <img src="~/Content/images/items/Máy tính Laptop Asus Vivobook 14 X1402ZA i5.jpg" class="img-bg">
+                    </div>
+
+                </div> <!-- col.// -->
+                <div class="col-md-9">
+                    <ul class="row no-gutters bordered-cols">
+                        @foreach (var item in Model.ListProduct.Where(n => n.BrandId == 4))
+                        {
+                            <li class="col-6 col-lg-3 col-md-4">
+                                <a href="@Url.Action("Detail","Product", new {Id = item.Id })" class="item">
+                                    <div class="card-body">
+
                                         <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
                                         <h class="title"><i class="fa fa-map-marker-alt"></i> @item.Name</h>
                                     </div>
@@ -192,65 +226,6 @@
     </section>
     <!-- =============== SECTION 2 END =============== -->
     <!-- =============== SECTION REQUEST =============== -->
-
-    <section class="padding-bottom">
-
-        <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Yêu cầu báo giá</h4>
-        </header>
-
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card-banner banner-quote overlay-gradient" style="background-image: url('~/Content/images/banners/banner9.jpg');">
-                    <div class="card-img-overlay white">
-                        <h3 class="card-title">Một cách dễ dàng để gửi yêu cầu đến nhà cung cấp</h3>
-                        <p class="card-text" style="max-width: 400px">
-                            Xin chào
-                        </p>
-                        <a href="" class="btn btn-primary rounded-pill">Tìm hiểu thêm</a>
-                    </div>
-                </div>
-            </div> <!-- col // -->
-            <div class="col-md-4">
-
-                <div class="card card-body">
-                    <h4 class="title py-3">Một yêu cầu, nhiều báo giá</h4>
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" name="" placeholder="Bạn đang tìm kiếm cái gì?" type="text">
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input class="form-control" placeholder="Số lượng" name="" type="text">
-                                <select class="custom-select form-control">
-                                    <option>Miếng</option>
-                                    <option>Lít</option>
-                                    <option>Tấn</option>
-                                    <option>ngữ pháp</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group text-muted">
-                            <p>Chọn loại mẫu:</p>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" value="option1">
-                                <div class="form-check-label">Yêu cầu giá</div>
-                            </label>
-                            <label class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" value="option2">
-                                <div class="form-check-label">Yêu cầu một ví dụ</div>
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-warning">Yêu cầu báo giá</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div> <!-- col // -->
-        </div> <!-- row // -->
-    </section>
-
     <!-- =============== SECTION REQUEST .//END =============== -->
     <!-- =============== SECTION ITEMS =============== -->
     <section class="padding-bottom-sm">
@@ -260,7 +235,7 @@
         </header>
 
         <div class="row row-sm">
-            @foreach (var item in Model.ListProduct.Where(n=>n.TypeId == 2).Take(6))
+            @foreach (var item in Model.ListProduct.Where(n => n.TypeId == 2).Take(6))
             {
                 <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                     <div href="#" class="card card-sm card-product-grid">
@@ -276,100 +251,13 @@
     </section>
     <!-- =============== SECTION ITEMS .//END =============== -->
     <!-- =============== SECTION SERVICES =============== -->
-    <section class="padding-bottom">
-
-        <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Dịch vụ thương mại</h4>
-        </header>
-
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">Đảm bảo thương mại</h6>
-                        <p class="small text-uppercase text-muted">Bảo vệ đơn hàng</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/2.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">thanh toán bất cứ lúc nào</h6>
-                        <p class="small text-uppercase text-muted">giải pháp tài chính</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/3.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">Giải pháp kiểm tra</h6>
-                        <p class="small text-uppercase text-muted">Kiểm tra dễ dàng</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-            <div class="col-md-3 col-sm-6">
-                <article class="card card-post">
-                    <img src="~/Content/images/posts/4.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h6 class="title">Vận chuyển đường biển và đường hàng không</h6>
-                        <p class="small text-uppercase text-muted">Dịch vụ hậu cần</p>
-                    </div>
-                </article> <!-- card.// -->
-            </div> <!-- col.// -->
-        </div> <!-- row.// -->
-
-    </section>
     <!-- =============== SECTION SERVICES .//END =============== -->
     <!-- =============== SECTION REGION =============== -->
-    <section class="padding-bottom">
-
-        <header class="section-heading heading-line">
-            <h4 class="title-section text-uppercase">Chọn khu vực</h4>
-        </header>
-
-        <ul class="row mt-4">
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/CN.png"> <span>Trung Quốc</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/DE.png"> <span>Đức</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/AU.png"> <span>Châu Úc</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/RU.png"> <span>Nga</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/IN.png"> <span>Ấn Độ</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/GB.png"> <span>nước Anh</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/TR.png"> <span>Thổ Nhĩ Kỳ</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm" src="~/Content/images/icons/flags/UZ.png"> <span>U-dơ-bê-ki-xtan</span> </a></li>
-            <li class="col-md col-6"><a href="#" class="icontext"> <i class="mr-3 fa fa-ellipsis-h"></i> <span>Nhiều khu vực hơn</span> </a></li>
-        </ul>
-    </section>
     <!-- =============== SECTION REGION .//END =============== -->
 
-    <article class="my-4">
-        <img src="~/Content/images/banners/ad-sm.png" class="w-100">
-    </article>
+
 </div>
 <!-- container end.// -->
 <!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="section-subscribe padding-y-lg">
-    <div class="container">
 
-        <p class="pb-2 text-center text-white">Cung cấp các xu hướng sản phẩm mới nhất và tin tức ngành trực tiếp vào hộp thư đến của bạn</p>
-
-        <div class="row justify-content-md-center">
-            <div class="col-lg-5 col-md-6">
-                <form class="form-row">
-                    <div class="col-md-8 col-7">
-                        <input class="form-control border-0" placeholder="Email của bạn" type="email">
-                    </div> <!-- col.// -->
-                    <div class="col-md-4 col-5">
-                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Đặt mua </button>
-                    </div> <!-- col.// -->
-                </form>
-                <small class="form-text text-white-50">Chúng tôi sẽ không bao giờ chia sẻ địa chỉ email của bạn với bên thứ ba.</small>
-            </div> <!-- col-md-6.// -->
-        </div>
-
-
-    </div>
-</section>
 <!-- ========================= SECTION SUBSCRIBE END// ========================= -->

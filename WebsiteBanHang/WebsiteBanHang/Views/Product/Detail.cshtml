@@ -36,10 +36,10 @@
 <section class="py-3 bg-light">
     <div class="container">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Category name</a></li>
-            <li class="breadcrumb-item"><a href="#">Sub category</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Items</li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="#">Tên danh mục</a></li>
+            <li class="breadcrumb-item"><a href="#">Danh mục phụ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Mặt hàng</li>
         </ol>
     </div>
 </section>
@@ -83,13 +83,13 @@
                                 <i class="fa fa-star"></i>
                             </li>
                         </ul>
-                        <small class="label-rating text-muted">132 reviews</small>
-                        <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
+                        <small class="label-rating text-muted">132 đánh giá</small>
+                        <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 đơn đặt hàng </small>
                     </div> <!-- rating-wrap.// -->
 
                     <div class="mb-3">
                         <var class="price h4">@Model.Price</var>
-                        <span class="text-muted">USD 562.65 incl. VAT</span>
+                        <span class="text-muted">USD 562,65 đã bao gồm thuế GTGT</span>
                     </div> <!-- price-detail-wrap .// -->
 
                     <p>
@@ -98,20 +98,20 @@
 
 
                     <dl class="row">
-                        <dt class="col-sm-3">Manufacturer</dt>
+                        <dt class="col-sm-3">Nhà chế tạo</dt>
                         <dd class="col-sm-9"><a href="#">Great textile Ltd.</a></dd>
 
-                        <dt class="col-sm-3">Article number</dt>
+                        <dt class="col-sm-3">Số bài viết</dt>
                         <dd class="col-sm-9">596 065</dd>
 
-                        <dt class="col-sm-3">Guarantee</dt>
-                        <dd class="col-sm-9">2 year</dd>
+                        <dt class="col-sm-3">Bảo đảm</dt>
+                        <dd class="col-sm-9">2 năm</dd>
 
-                        <dt class="col-sm-3">Delivery time</dt>
-                        <dd class="col-sm-9">3-4 days</dd>
+                        <dt class="col-sm-3">Thời gian giao hàng</dt>
+                        <dd class="col-sm-9">3-4 ngày</dd>
 
-                        <dt class="col-sm-3">Availabilty</dt>
-                        <dd class="col-sm-9">in Stock</dd>
+                        <dt class="col-sm-3">Khả dụng</dt>
+                        <dd class="col-sm-9">trong kho</dd>
                     </dl>
 
                     <div class="form-row  mt-4">
@@ -141,7 +141,7 @@
 
         <div class="row">
             <div class="col-md-8">
-                <h5 class="title-description">Description</h5>
+                <h5 class="title-description">Mô tả</h5>
               @Model.FullDescription
             </div> <!-- col.// -->
 
@@ -149,40 +149,42 @@
 
                 <div class="box">
 
-                    <h5 class="title-description">Files</h5>
+                    <h5 class="title-description">Các tập tin</h5>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Điện thoại thông minh hay smartphone là khái niệm để chỉ các loại thiết bị di động kết hợp điện thoại di động các chức năng điện toán di động vào một thiết bị. 
+                        Chúng được phân biệt với điện thoại phổ thông bởi khả năng phần cứng mạnh hơn và hệ điều hành di động mở rộng,
+                        tạo điều kiện cho phần mềm rộng hơn, internet (bao gồm duyệt web qua băng thông rộng di động) 
+                        và chức năng đa phương tiện (bao gồm âm nhạc, video, máy ảnh và chơi game), 
+                        cùng với các chức năng chính của điện thoại như cuộc gọi thoại và nhắn tin văn bản.
+                        Điện thoại thông minh thường chứa một số chip IC kim loại-oxit-bán dẫn (MOS), 
+                        bao gồm các cảm biến khác nhau có thể được tận dụng bởi phần mềm của chúng (chẳng hạn như từ kế, cảm biến tiệm cận, 
+                        phong vũ biểu, con quay hồi chuyển hoặc gia tốc kế) và hỗ trợ giao thức truyền thông không dây (chẳng hạn như Bluetooth, Wi-Fi hoặc định vị vệ tinh).
                     </p>
 
-                    <h5 class="title-description">Videos</h5>
+                    <h5 class="title-description">Video</h5>
 
 
                     <article class="media mb-3">
                         <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/@Model.Avatar"></a>
                         <div class="media-body">
-                            <h6 class="mt-0"><a href="#">How to use this item</a></h6>
-                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                            <h6 class="mt-0"><a href="#">Làm thế nào để sử dụng mặt hàng này</a></h6>
+                            <p class="mb-2"> Điện thoại thông minh ban đầu được tiếp thị chủ yếu hướng tới thị trường doanh nghiệp, cố gắng kết nối chức năng của thiết bị trợ lý kỹ thuật số cá nhân PDA độc lập với hỗ trợ điện thoại di động </p>
                         </div>
                     </article>
 
                     <article class="media mb-3">
                         <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/2.jpg"></a>
                         <div class="media-body">
-                            <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
-                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                            <h6 class="mt-0"><a href="#">Mẹo và thủ thuật mới</a></h6>
+                            <p class="mb-2"> Vào những năm 2000, nền tảng i-mode của NTT DoCoMo, BlackBerry, nền tảng Symbian của Nokia, và Windows Mobile bắt đầu giành được sức hút trên thị trường, với các mẫu máy thường có bàn phím QWERTY  </p>
                         </div>
                     </article>
 
                     <article class="media mb-3">
                         <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/1.jpg"></a>
                         <div class="media-body">
-                            <h6 class="mt-0"><a href="#">New tips and tricks</a></h6>
-                            <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>
+                            <h6 class="mt-0"><a href="#">Mẹo và thủ thuật mới</a></h6>
+                            <p class="mb-2"> Sau sự phổ biến ngày càng tăng của iPhone vào cuối những năm 2000, phần lớn smartphone có kiểu dáng mỏng, </p>
                         </div>
                     </article>
 
@@ -196,91 +198,10 @@
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
 <!-- ========================= SECTION SUBSCRIBE  ========================= -->
-<section class="padding-y-lg bg-light border-top">
-    <div class="container">
 
-        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
-
-        <div class="row justify-content-md-center">
-            <div class="col-lg-4 col-sm-6">
-                <form class="form-row">
-                    <div class="col-8">
-                        <input class="form-control" placeholder="Your Email" type="email">
-                    </div> <!-- col.// -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
-                    </div> <!-- col.// -->
-                </form>
-                <small class="form-text">We’ll never share your email address with a third-party. </small>
-            </div> <!-- col-md-6.// -->
-        </div>
-
-
-    </div>
-</section>
 <!-- ========================= SECTION SUBSCRIBE END// ========================= -->
 <!-- ========================= FOOTER ========================= -->
-<footer class="section-footer bg-secondary">
-    <div class="container">
-        <section class="footer-top padding-y-lg text-white">
-            <div class="row">
-                <aside class="col-md col-6">
-                    <h6 class="title">Brands</h6>
-                    <ul class="list-unstyled">
-                        <li> <a href="#">Adidas</a></li>
-                        <li> <a href="#">Puma</a></li>
-                        <li> <a href="#">Reebok</a></li>
-                        <li> <a href="#">Nike</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-md col-6">
-                    <h6 class="title">Company</h6>
-                    <ul class="list-unstyled">
-                        <li> <a href="#">About us</a></li>
-                        <li> <a href="#">Career</a></li>
-                        <li> <a href="#">Find a store</a></li>
-                        <li> <a href="#">Rules and terms</a></li>
-                        <li> <a href="#">Sitemap</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-md col-6">
-                    <h6 class="title">Help</h6>
-                    <ul class="list-unstyled">
-                        <li> <a href="#">Contact us</a></li>
-                        <li> <a href="#">Money refund</a></li>
-                        <li> <a href="#">Order status</a></li>
-                        <li> <a href="#">Shipping info</a></li>
-                        <li> <a href="#">Open dispute</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-md col-6">
-                    <h6 class="title">Account</h6>
-                    <ul class="list-unstyled">
-                        <li> <a href="#"> User Login </a></li>
-                        <li> <a href="#"> User register </a></li>
-                        <li> <a href="#"> Account Setting </a></li>
-                        <li> <a href="#"> My Orders </a></li>
-                    </ul>
-                </aside>
-                <aside class="col-md">
-                    <h6 class="title">Social</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
-                        <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
-                        <li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
-                        <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
-                    </ul>
-                </aside>
-            </div> <!-- row.// -->
-        </section>  <!-- footer-top.// -->
-        <section class="footer-bottom text-center">
 
-            <p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
-            <p class="text-muted"> &copy 2019 Company name, All rights reserved </p>
-            <br>
-        </section>
-    </div><!-- //container -->
-</footer>
 <!-- ========================= FOOTER END // ========================= -->
 </body>
 </html>

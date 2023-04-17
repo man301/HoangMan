@@ -16,7 +16,7 @@
                             <img src="~/Content/images/category/@item.Avatar">
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="">@item.Name</a></h4>
+                            <h4 class="card-title"><a href="@Url.Action("ProductCategory","Category", new {Id = item.Id })">@item.Name</a></h4>
                         </div>
                     </div>
                 </div> <!-- col.// -->

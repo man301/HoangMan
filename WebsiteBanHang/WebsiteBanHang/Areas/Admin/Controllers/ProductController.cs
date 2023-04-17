@@ -113,6 +113,7 @@ namespace WebsiteBanHang.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            this.LoadData();
             var objProduct = dbObj.Products.Where(n => n.Id == id).FirstOrDefault();
             return View(objProduct);
         }
@@ -120,6 +121,7 @@ namespace WebsiteBanHang.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(int id,Product objProduct)
         {
+            this.LoadData();
             if (ModelState.IsValid)
             {
                 if (objProduct.ImageUpload != null)

@@ -7,7 +7,7 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="cache-control" content="max-age=604800" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>WebSiteBanHang-Nguyen Hoang Man</title>
+    <title>Nguyễn Hoàng Mẫn</title>
     <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <!-- jQuery -->
     <script src="~/Scripts/js/jquery-2.0.0.min.js" type="text/javascript"></script>
@@ -29,20 +29,17 @@
                 <div class="row align-items-center">
                     <div class="col-xl-2 col-lg-3 col-md-12">
                         <a href="@Url.Action("","home")" class="brand-wrap">
-                            <img class="logo" src="~/Content/images/logo.png">
+                            <img style="width:150px;height:1000px" class="logo" src="~/Content/images/items/logo.jpg">
                         </a> <!-- brand-wrap.// -->
                     </div>
                     <div class="col-xl-6 col-lg-5 col-md-6">
-                        <form action="#" class="search-header">
+                        <form action="@Url.Action("Search","Home")" class="search-header" name="timkiem">
                             <div class="input-group w-100">
-                                <select class="custom-select border-right" name="category_name">
-                                    <option value="">Tất cả các loại</option>
-                                    <option value="codex">Ðặc biệt</option>
-                                    <option value="comments">Chỉ tốt nhất</option>
-                                    <option value="content">Muộn nhất</option>
-                                </select>
-                                <input type="text" class="form-control" placeholder="Tìm kiếm">
+                                @*<input type="text" name="search" class="form-control" />
+                    <input type="submit" name="submit" value="tìm kiếm" class="form-control"/>*@
 
+                                
+                                <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" name="key">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
                                         <i class="fa fa-search"></i> Tìm kiếm
@@ -51,6 +48,7 @@
                             </div>
                         </form> <!-- search-wrap .end// -->
                     </div> <!-- col.// -->
+
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="widgets-wrap float-md-right">
                             <div class="widget-header mr-3">
@@ -66,30 +64,7 @@
                                     <small class="text"> Cá nhân </small>
                                 </a>
                             </div>
-                            <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="  fa fa-comment-dots"></i>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
-                                            <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
-                                            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                                        </svg>
-                                        <span class="notify">10</span>
-                                    </div>
-                                    <small class="text"> Hộp thoại </small>
-                                </a>
-                            </div>
-                            <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
-                                    <div class="icon-area">
-                                        <i class="fa fa-store"></i>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
-                                            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
-                                        </svg>
-                                    </div>
-                                    <small class="text"> Đặt hàng </small>
-                                </a>
-                            </div>
+
                             <div class="widget-header">
                                 <a href="@Url.Action("Cart","Cart")" class="widget-view">
                                     <div class="icon-area">
@@ -118,40 +93,27 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Thể loại </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category")">Ðiện thoại</a>
-                                <a class="dropdown-item" href="#">Máy tính</a>
-                                <a class="dropdown-item" href="#">Máy tính bảng</a>
-                                <a class="dropdown-item" href="#">Phụ kiện</a>
-                                <a class="dropdown-item" href="#">Ðồng hồ thông minh</a>
-                                <a class="dropdown-item" href="#">Khác</a>
-
+                                <a class="dropdown-item" href="@Url.Action("ProductCategory/1", "Category")">Ðiện thoại</a>
+                                <a class="dropdown-item" href="@Url.Action("ProductCategory/2", "Category")">Máy tính</a>
+                                <a class="dropdown-item" href="@Url.Action("ProductCategory/3", "Category")">Máy tính bảng</a>
+                                <a class="dropdown-item" href="@Url.Action("ProductCategory/4", "Category")">Phụ kiện</a>
+                                <a class="dropdown-item" href="@Url.Action("ProductCategory/5", "Category")">Ðồng hồ thông minh</a>
+                                <a class="dropdown-item" href="@Url.Action("ProductCategory/6", "Category")">Ðồng hồ thời trang</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Category", "Category")">Các loại danh mục sản phẩm</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("grid", "Listing_grid")">Tất cả sản phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Dịch vụ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Bán với chúng tôi</a>
-                        </li>
+                        
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Trang</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="page-index.html">Chính</a>
-                                <a class="dropdown-item" href="page-category.html">Tất cả thể loại</a>
-                                <a class="dropdown-item" href="page-listing-large.html">Danh sách niêm yết</a>
-                                <a class="dropdown-item" href="page-listing-grid.html">Liệt kê</a>
-                                <a class="dropdown-item" href="page-shopping-cart.html">Giỏ hàng</a>
-                                <a class="dropdown-item" href="page-detail-product.html">Chi tiết hàng</a>
-                                <a class="dropdown-item" href="page-content.html">Nội dung thông tin</a>
-                                <a class="dropdown-item" href="page-user-login.html">Trang đăng nhập</a>
-                                <a class="dropdown-item" href="page-user-register.html">Trang đăng kí</a>
-                                <a class="dropdown-item disabled text-muted" href="#">Thêm thành phần</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Home")">Chính</a>
+                                <a class="dropdown-item" href="@Url.Action("Category", "Category")">Tất cả thể loại</a>
+                                <a class="dropdown-item" href="@Url.Action("Cart", "Cart")">Giỏ hàng</a>
+                                <a class="dropdown-item" href="@Url.Action("Login", "Home")">Trang đăng nhập</a>
+                                <a class="dropdown-item" href="@Url.Action("Register", "Home")">Trang đăng kí</a>
                             </div>
                         </li>
                     </ul>
@@ -195,50 +157,25 @@
             <section class="footer-top padding-y-lg text-white">
                 <div class="row">
                     <aside class="col-md col-6">
-                        <h6 class="title">Nhãn hiệu</h6>
-                        <ul class="list-unstyled">
-                            <li> <a href="#">Apple</a></li>
-                            <li> <a href="#">Samsung</a></li>
-                            <li> <a href="#">Redmi</a></li>
-                            <li> <a href="#">Vivo</a></li>
-                        </ul>
-                    </aside>
-                    <aside class="col-md col-6">
-                        <h6 class="title">Công ty</h6>
-                        <ul class="list-unstyled">
-                            <li> <a href="#">Về chúng tôi</a></li>
-                            <li> <a href="#">Sự nghiệp</a></li>
-                            <li> <a href="#">Tìm cửa hàng</a></li>
-                            <li> <a href="#">Quy tắc và điều khoản</a></li>
-                            <li> <a href="#">Sơ đồ trang web</a></li>
-                        </ul>
-                    </aside>
-                    <aside class="col-md col-6">
                         <h6 class="title">Trợ giúp</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#">Liên hệ chúng tôi</a></li>
-                            <li> <a href="#">Hoàn tiền</a></li>
-                            <li> <a href="#">Tình trạng đặt hàng</a></li>
-                            <li> <a href="#">Thông tin vận chuyển</a></li>
-                            <li> <a href="#">Mở tranh chấp</a></li>
+                            <li> <a href="@Url.Action("Cart", "Cart")">Tình trạng đặt hàng</a></li>
                         </ul>
                     </aside>
                     <aside class="col-md col-6">
                         <h6 class="title">Tài khoản</h6>
                         <ul class="list-unstyled">
-                            <li> <a href="#"> Ðăng nhập nguời dùng </a></li>
-                            <li> <a href="#"> Ðăng kí nguời dùng </a></li>
-                            <li> <a href="#"> Cài đặt tài khoản </a></li>
-                            <li> <a href="#"> Ðặt hàng của tôi </a></li>
+                            <li> <a href="@Url.Action("Login", "Home")"> Ðăng nhập </a></li>
+                            <li> <a href="@Url.Action("Register", "Home")"> Ðăng ký </a></li>
                         </ul>
                     </aside>
                     <aside class="col-md">
                         <h6 class="title">Mạng xã hội</h6>
                         <ul class="list-unstyled">
-                            <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
-                            <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
-                            <li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
-                            <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
+                            <li><a href="https://www.facebook.com/" target="_blank"> <i class="fab fa-facebook"></i> Facebook </a></li>
+                            <li><a href="https://twitter.com/" target="_blank"> <i class="fab fa-twitter"></i> Twitter </a></li>
+                            <li><a href="https://www.instagram.com/" target="_blank"> <i class="fab fa-instagram"></i> Instagram </a></li>
+                            <li><a href="https://www.youtube.com/" target="_blank"> <i class="fab fa-youtube"></i> Youtube </a></li>
                         </ul>
                     </aside>
                 </div> <!-- row.// -->
